@@ -46,7 +46,11 @@ router.post("/login", (req, res) => {
   }
 });
 
+
+
 router.get("/", (req, res) => {
+  console.log("Acessando a rota /");
+
   const openOffCanvas = req.query.openOffCanvas === "true";
   const carrinho = req.session.carrinho || [];
   const { nomeProduto, action } = req.query;
@@ -67,6 +71,7 @@ router.get("/", (req, res) => {
         produtoNoCarrinho.quantidade * produtoNoCarrinho.preco;
     }
 
+    
     return res.redirect("/admin?openOffCanvas=true");
   }
 

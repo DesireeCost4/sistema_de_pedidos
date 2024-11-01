@@ -72,13 +72,21 @@ mongoose
 //public
 app.use(express.static(path.join(__dirname, "public")));
 
+
+app.get("/", (req, res) => {
+  res.render("admin/index"); // Certifique-se de que você tenha uma view "home.handlebars"
+});
+
 //rotas
 app.use("/admin", admin);
 
-
-app.use((req, res) => {
-  res.status(404).send('Página não encontrada');
+// Ao final do seu app.js
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
 });
+
+
 
 
 
