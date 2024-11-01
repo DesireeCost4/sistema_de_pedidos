@@ -1,0 +1,22 @@
+footer {
+  background-color: #343a40; 
+  color: white; 
+  margin: 0;
+}
+
+footer a {
+  color: white; 
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #ffc107; 
+}
+
+footer h5 {
+  margin-bottom: 15px; 
+}
+
+
+
+
