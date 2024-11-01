@@ -101,15 +101,20 @@ router.get("/", (req, res) => {
 //
 // mostrar produtos cadastrados (apenas adms)
 router.get("/categorias", verificaAdmin, (req, res) => {
-  Categoria.find()
+  console.log("Acessando a rota /admin/categorias");
+
+  Categoria.find().limit(100) 
     .then((categorias) => {
+      console.log("Categorias encontradas:", categorias.length); // Log do número de categorias encontradas
       res.render("admin/categorias", { categorias: categorias });
     })
     .catch((err) => {
+      console.error("Erro ao buscar categorias:", err); // Log do erro
       req.flash("error_msg", "Houve um erro ao listar os produtos");
       res.redirect("/admin");
     });
 });
+
 
 // Rota para adicionar novo
 router.post(
