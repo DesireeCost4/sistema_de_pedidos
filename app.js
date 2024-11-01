@@ -36,6 +36,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+
 //hadlebars
 const handlebars = exphbs.create({
   defaultLayout: "main",
@@ -49,6 +50,8 @@ const handlebars = exphbs.create({
     eq: (a, b) => a === b,
   },
 });
+app.set("views", path.join(__dirname, "views"));
+
 app.engine("handlebars", handlebars.engine);
 app.set("view engine", "handlebars");
 
