@@ -76,10 +76,7 @@ mongoose
 app.use(express.static(path.join(__dirname, "public")));
 
 
-app.get("/", (req, res) => {
-  console.log("acessando a rota do app")
-  res.render("admin"); // Certifique-se de que você tenha uma view "home.handlebars"
-});
+
 
 //rotas
 app.use("/admin", admin);

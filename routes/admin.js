@@ -98,6 +98,11 @@ router.get("/", (req, res) => {
     });
 });
 
+app.get("/", (req, res) => {
+  console.log("acessando a rota do app")
+  res.render("admin"); // Certifique-se de que você tenha uma view "home.handlebars"
+});
+
 //
 // mostrar produtos cadastrados (apenas adms)
 router.get("/categorias", verificaAdmin, (req, res) => {
