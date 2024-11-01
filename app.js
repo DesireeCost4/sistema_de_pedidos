@@ -80,7 +80,16 @@ app.get("/", (req, res) => {
 //rotas
 app.use("/admin", admin);
 
+app.use((err, req, res, next) => {
+  console.error(err.stack); // Log do erro no console
+  res.status(500).send('Algo deu errado!'); // Resposta ao cliente
+});
 
+// Ao final do seu app.js
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+});
 
 
 
